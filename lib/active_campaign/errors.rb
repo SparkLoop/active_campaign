@@ -29,12 +29,12 @@ module ActiveCampaign
         super
       else
         <<~MESSAGE
-          STATUS: #{response.status}
-          URL: #{env.url}
-          REQUEST HEADERS: #{env.request_headers}
-          RESPONSE_HEADERS: #{env.response_headers}
-          REQUEST_BODY: #{env.request_body}\n\n"
-          RESPONSE_BODY: #{response.body}\n\n"
+          STATUS: #{response.response[:status]}
+          URL: #{response.response[:request][:url_path]}
+          REQUEST HEADERS: #{response.response[:request][:headers]}
+          RESPONSE_HEADERS: #{response.response[:headers]}
+          REQUEST_BODY: #{response.response[:request][:body]}\n\n"
+          RESPONSE_BODY: #{response.response[:body]}\n\n"
         MESSAGE
       end
     end
