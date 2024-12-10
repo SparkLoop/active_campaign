@@ -42,6 +42,7 @@ module ActiveCampaign
         ActiveCampaign::Faraday::Middleware.add_response_middleware(faraday, config[:response_middleware])
 
         faraday.adapter config[:adapter]
+        faraday.response :raise_error, include_request: true
 
         if (options = faraday.options)
           options.timeout      = config[:api_timeout]
