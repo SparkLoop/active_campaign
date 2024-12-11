@@ -110,6 +110,8 @@ module ActiveCampaign
       raise UnprocessableEntityError, e
     rescue ::Faraday::ServerError => e
       raise ServerError, e
+    rescue ::Faraday::ClientError => e
+      raise ClientError, e
     rescue ::Faraday::TimeoutError => e
       raise TimeoutError, e
     rescue ::Faraday::NilStatusError => e
