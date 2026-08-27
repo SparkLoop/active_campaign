@@ -31,7 +31,7 @@ RSpec.shared_context 'with existing account' do
   end
 
   after do
-    client.delete_account(account_id) if account_id
+    cleanup { client.delete_account(account_id) } if account_id
   end
 end
 
@@ -80,6 +80,6 @@ RSpec.shared_context 'with existing account_contact' do
   end
 
   after do
-    client.delete_account_contact(account_contact_id) if account_contact_id
+    cleanup { client.delete_account_contact(account_contact_id) } if account_contact_id
   end
 end

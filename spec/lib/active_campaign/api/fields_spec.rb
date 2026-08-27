@@ -74,8 +74,7 @@ RSpec.describe ActiveCampaign::API::Fields, :vcr do
     end
 
     it 'makes the custom field irretrievable' do
-      show_response = client.show_field(field_id)
-      expect(show_response).not_to include_json(field: expected_field_response)
+      expect { client.show_field(field_id) }.to raise_error(ActiveCampaign::ResourceNotFound)
     end
   end
 

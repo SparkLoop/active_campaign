@@ -27,6 +27,6 @@ RSpec.shared_context 'with existing tag', with_existing_tag: true do
   let(:tag_id) { tag[:id] }
 
   after do
-    client.delete_tag(tag_id) if tag_id
+    cleanup { client.delete_tag(tag_id) } if tag_id
   end
 end

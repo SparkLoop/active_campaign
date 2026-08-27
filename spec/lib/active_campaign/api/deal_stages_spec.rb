@@ -8,10 +8,6 @@ RSpec.describe ActiveCampaign::API::DealStages, :vcr do
 
     include_context 'with deal_stage params'
 
-    after do
-      client.delete_deal_stage(response.dig(:deal, :id))
-    end
-
     # rubocop:disable RSpec/ExampleLength
     it 'returns a deal_stage hash' do
       expect(response).to include_json(

@@ -29,6 +29,6 @@ RSpec.shared_context 'with existing text field value', with_existing_text_field_
   let(:field_value_id) { field_value[:id] }
 
   after do
-    client.delete_field_value(field_value_id) if field_value_id
+    cleanup { client.delete_field_value(field_value_id) } if field_value_id
   end
 end

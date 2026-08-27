@@ -18,10 +18,6 @@ RSpec.describe ActiveCampaign::API::Pipelines, :vcr do
 
     include_context 'with pipeline params'
 
-    after do
-      client.delete_pipeline(response.dig(:pipeline, :id))
-    end
-
     it 'returns a pipeline hash' do
       expect(response).to include_json(
         deal_group: {
