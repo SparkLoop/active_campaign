@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'faraday'
+require 'oj'
 
 require 'active_campaign/version'
 require 'active_campaign/errors'
