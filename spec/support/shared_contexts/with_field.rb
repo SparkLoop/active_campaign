@@ -39,7 +39,7 @@ RSpec.shared_context 'with existing text field', with_existing_text_field: true 
   let(:field_id) { field[:id] }
 
   after do
-    client.delete_field(field_id) if field_id
+    cleanup { client.delete_field(field_id) } if field_id
   end
 end
 
@@ -162,6 +162,6 @@ RSpec.shared_context 'with existing field rel', with_existing_field_rel: true do
   let(:rel_id) { field_rel[:id] }
 
   after do
-    client.delete_field_rel(rel_id) if rel_id
+    cleanup { client.delete_field_rel(rel_id) } if rel_id
   end
 end

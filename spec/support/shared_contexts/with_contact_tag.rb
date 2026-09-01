@@ -28,6 +28,6 @@ RSpec.shared_context 'with existing contact tag', with_existing_contact_tag: tru
   let(:contact_tag_id) { contact_tag[:id] }
 
   after do
-    client.delete_contact_tag(contact_tag_id) if contact_tag_id
+    cleanup { client.delete_contact_tag(contact_tag_id) } if contact_tag_id
   end
 end

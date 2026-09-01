@@ -40,7 +40,7 @@ module ActiveCampaign
       def endpoint(endpoint)
         require "active_campaign/api/#{endpoint}"
 
-        class_eval { include API.const_get(endpoint.to_s.camelize) }
+        class_eval { include API.const_get(TransformHash.camelize(endpoint.to_s)) }
       rescue LoadError, NameError
         raise DependencyMissing, endpoint
       end

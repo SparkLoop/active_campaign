@@ -64,8 +64,7 @@ RSpec.describe ActiveCampaign::API::Tags, :vcr do
     end
 
     it 'makes the tag irretrievable' do
-      show_response = client.show_tag(tag_id)
-      expect(show_response).not_to include_json(tag: expected_tag_response)
+      expect { client.show_tag(tag_id) }.to raise_error(ActiveCampaign::ResourceNotFound)
     end
   end
 end
